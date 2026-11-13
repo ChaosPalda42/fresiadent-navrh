@@ -357,15 +357,21 @@
     void document.body.offsetHeight;
     prvniPrvky.forEach(function (el, i) { ukaz(el, i * 85); });
 
-    /* Rychlé sjetí kolečkem nebo skok na kotvu přenese prvek přes okno mezi
-       dvěma snímky — hlídka se o něm nedozví a zůstal by navždy neviditelný.
-       Co zůstalo nad oknem, ukážeme bez zdržení (ověřeno skokem na konec
-       stránky: tři karty „proč k nám" takhle zmizely). */
+    /* Pojistka: co je v okně nebo nad ním, nesmí zůstat neviditelné, ať už se
+       o tom hlídka dozvěděla, nebo ne. Tři případy, kdy se nedozví:
+       – skok ve scrollu (kotva, klávesa End, obnovená pozice po reloadu)
+         přenese prvek přes okno mezi dvěma snímky;
+       – prvek se po skoku zastaví ve spodních 8 % okna, které má hlídka
+         schválně odříznutá, takže ho za „v záběru" nepovažuje;
+       – stránka se načte do karty na pozadí, kde prohlížeč kreslení uspí
+         a hlídka nedoručí nic (tohle nahlásila sousední session jako prázdnou
+         obrazovku — na skryté kartě měřeno správně, jen příčina je jinde).
+       Úklid proto běží po doskrolování, po zobrazení karty a jednou po startu. */
     var uklid;
-    function doukliditPreskocene() {
+    function doukliditCoJeVidet() {
       document.querySelectorAll("[data-vjezd]").forEach(function (el) {
         if (prvniPrvky.indexOf(el) !== -1) return;
-        if (el.getBoundingClientRect().bottom < 0) {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
           hlidkaVjezdu.unobserve(el);
           ukaz(el, 0);
         }
@@ -373,8 +379,12 @@
     }
     window.addEventListener("scroll", function () {
       clearTimeout(uklid);
-      uklid = setTimeout(doukliditPreskocene, 140);
+      uklid = setTimeout(doukliditCoJeVidet, 140);
     }, { passive: true });
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) doukliditCoJeVidet();
+    });
+    setTimeout(doukliditCoJeVidet, 1200);
   }
 
   /* ---------------------------------------------------------- světlo u myši
