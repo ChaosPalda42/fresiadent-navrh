@@ -646,3 +646,40 @@ body.menu-otevreno .prepinac span::after { transform: rotate(-45deg); }
   .hlava, .lista, .pruh-ukazky, .cta-pruh, .sdileni { display: none; }
   body { padding-bottom: 0; }
 }
+
+/* ================================================================ vjezd
+   Obsah se objevuje, jak se k němu člověk doroluje. Nic se neschovává
+   v HTML: značku `js-vjezd` nasadí na <html> drobný skript v hlavičce, a jen
+   když prohlížeč animace chce. Bez JS i při „omezit pohyb" je všechno vidět
+   rovnou. Po dojetí web.js atributy odebere — jinak by `transform: none`
+   přebíjelo nadzvednutí karty pod myší. */
+.js-vjezd [data-vjezd] { opacity: 0; will-change: opacity, transform; }
+.js-vjezd [data-vjezd="zdola"]     { transform: translate3d(0, 20px, 0); }
+.js-vjezd [data-vjezd="zleva"]     { transform: translate3d(-24px, 0, 0); }
+.js-vjezd [data-vjezd="zprava"]    { transform: translate3d(24px, 0, 0); }
+.js-vjezd [data-vjezd="priblizit"] { transform: scale(.965); }
+.js-vjezd [data-vjezd].je-videt {
+  opacity: 1; transform: none;
+  transition: opacity .45s ease, transform .55s cubic-bezier(.21, .72, .31, 1);
+  transition-delay: var(--zdrzeni, 0ms);
+}
+
+/* ================================================================ světlo u myši
+   Třídu i prvek přidává web.js, a jen na jemném ukazateli — na dotyku by
+   světlo zůstalo viset tam, kde se naposledy ťuklo. */
+.svetlo { position: relative; }
+.svetlo::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border-radius: inherit; opacity: 0; transition: opacity .35s ease;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0px),
+    color-mix(in srgb, var(--modra) 13%, transparent), transparent 72%);
+}
+.svetlo:hover::after { opacity: 1; }
+
+.hero__zare {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  opacity: 0; transition: opacity .6s ease;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(79, 195, 232, .17), transparent 70%);
+}
+.hero[data-mys] .hero__zare { opacity: 1; }

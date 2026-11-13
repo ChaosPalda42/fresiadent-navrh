@@ -4,6 +4,9 @@
 
   var klid = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* kde je myš v heru (podíl 0–1) — čte to kreslení zubu i jeho záře */
+  var mysX = 0.5, mysY = 0.5, mysVHeru = false;
+
   /* ---------------------------------------------------------- menu */
   var prepinac = document.querySelector("[data-prepinac]");
   if (prepinac) {
@@ -142,6 +145,7 @@
     var body = [];
     var sirka = 0, vyska = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
     var cas = 0, bezi = false;
+    var posunX = 0, posunY = 0, naklon = 0; /* decentni reakce na mys */
 
     var maska = new Image();
     maska.src = platno.getAttribute("data-zub");
@@ -199,7 +203,13 @@
       cas += 0.0055;
       ctx.clearRect(0, 0, sirka, vyska);
 
-      var otoc = Math.sin(cas * 0.55) * 0.3;
+      /* zub se nenapadne nakloni k mysi a drobek za ni popojede */
+      var cx = mysVHeru ? mysX - 0.5 : 0;
+      var cy = mysVHeru ? mysY - 0.5 : 0;
+      posunX += (cx * 26 - posunX) * 0.055;
+      posunY += (cy * 15 - posunY) * 0.055;
+      naklon += (cx * 0.45 - naklon) * 0.055;
+      var otoc = Math.sin(cas * 0.55) * 0.3 + naklon;
       /* světelná vlna shora dolů — nerýsuje se, jen rozsvěcuje body */
       var yv = sy + ((((cas * 0.14) % 1.6) - 0.3) - 0.5) * mer * 1.1;
       var sirkaVlny = Math.max(26, mer * 0.1);
@@ -210,8 +220,8 @@
         var px = b.x * Math.cos(otoc);
         var hloubka = b.x * Math.sin(otoc);
         var pulz = Math.sin(cas * 2.1 + b.f) * 0.5 + 0.5;
-        var x = sx + px * mer * 1.06;
-        var y = sy + b.y * mer * 1.06 + Math.sin(cas * 1.3 + b.f) * 1.6;
+        var x = sx + posunX + px * mer * 1.06;
+        var y = sy + posunY + b.y * mer * 1.06 + Math.sin(cas * 1.3 + b.f) * 1.6;
         var vlna = Math.max(0, 1 - Math.abs(y - yv) / sirkaVlny);
         var a = (0.26 + pulz * 0.62 + vlna * 0.55) * b.j * (0.62 + hloubka * 0.38);
         if (a <= 0.01) continue;
@@ -246,5 +256,171 @@
       if (!vidi) bezi = false;
     }, { threshold: 0 });
     hlidac.observe(platno);
+  }
+
+  /* ---------------------------------------------------------- postupný vjezd
+     Obsah se objevuje, jak se k němu člověk doroluje — krátce (půl vteřiny)
+     a s malým posunem, aby si toho všiml a nečekal na to. Prvky, které jsou
+     nahoře hned při načtení, jedou samy po sobě bez čekání na posun. */
+  var vjezd = document.documentElement.classList.contains("js-vjezd");
+  if (vjezd) {
+    document.documentElement.setAttribute("data-vjezd-bezi", ""); /* pojistka v hlavičce */
+
+    var KROK = 70, STROP = 300, DOBA = 650;
+
+    /* co jede hned po načtení, v tomhle pořadí */
+    var hned = [
+      ".hero__stuzka", ".hero h1", ".hero__podtitul", ".hero__akce", ".hero__zub",
+      ".sluzba-hlava .drobky", ".sluzba-hlava h1", ".sluzba-hlava p",
+      ".clanek-hlava .drobky", ".clanek-hlava .stitek", ".clanek-hlava h1",
+      ".clanek-hlava .meta", ".clanek-hlava__foto",
+      ".chyba__kod", ".chyba h1", ".chyba p",
+    ];
+
+    /* co čeká, až se k němu doroluje */
+    var pozdeji = [
+      [".hero__dlazdice", "zdola"],
+      [".hlavicka-sekce", "zdola"],
+      [".duvod", "zdola"],
+      [".sluzba-karta", "zdola"],
+      [".clanek-karta", "zdola"],
+      [".hlavni-clanek", "priblizit"],
+      [".krok", "zdola"],
+      [".kanal", "zdola"],
+      [".lekarka__foto", "zleva"],
+      [".lekarka > div:not(.lekarka__foto)", "zprava"],
+      [".citat", "zdola"],
+      [".cisla > div", "zdola"],
+      [".panel", "zdola"],
+      [".postranni-box", "zdola"],
+      [".mapa", "priblizit"],
+      [".doprava > div", "zdola"],
+      [".dotaz", "zdola"],
+      [".seznam-fajf > li", "zdola"],
+      [".fakta > div", "zdola"],
+      [".chip", "zdola"],
+      [".sluzba-mrizka > *", "zdola"],
+      [".cta-pruh__vnitrek > *", "zdola"],
+      [".text > p, .text > h2, .text > h3, .text > ul, .text > ol, .text > blockquote", "zdola"],
+      [".pata__mrizka > div", "zdola"],
+    ];
+
+    function ukaz(el, zdrzeni) {
+      el.style.setProperty("--zdrzeni", zdrzeni + "ms");
+      el.classList.add("je-videt");
+      /* po dojetí atributy pryč — `transform: none` by jinak přebilo hover */
+      setTimeout(function () {
+        el.removeAttribute("data-vjezd");
+        el.classList.remove("je-videt");
+        el.style.removeProperty("--zdrzeni");
+      }, zdrzeni + DOBA);
+    }
+
+    var prvniPrvky = [];
+    hned.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) {
+        if (el.hasAttribute("data-vjezd")) return;
+        el.setAttribute("data-vjezd", /foto|zub/.test(sel) ? "priblizit" : "zdola");
+        prvniPrvky.push(el);
+      });
+    });
+
+    pozdeji.forEach(function (p) {
+      document.querySelectorAll(p[0]).forEach(function (el) {
+        if (!el.hasAttribute("data-vjezd")) el.setAttribute("data-vjezd", p[1]);
+      });
+    });
+
+    /* Zdržení se počítá podle toho, co přišlo do záběru najednou: řada karet
+       se tak rozsvítí za sebou, osamělý odstavec hned. */
+    var hlidkaVjezdu = new IntersectionObserver(function (zaznamy) {
+      zaznamy
+        .filter(function (z) { return z.isIntersecting; })
+        .sort(function (a, b) {
+          return (a.boundingClientRect.top - b.boundingClientRect.top)
+            || (a.boundingClientRect.left - b.boundingClientRect.left);
+        })
+        .forEach(function (z, i) {
+          hlidkaVjezdu.unobserve(z.target);
+          ukaz(z.target, Math.min(i * KROK, STROP));
+        });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.01 });
+
+    document.querySelectorAll("[data-vjezd]").forEach(function (el) {
+      if (prvniPrvky.indexOf(el) === -1) hlidkaVjezdu.observe(el);
+    });
+
+    /* Vynucené přepočítání rozvržení mezi schováním a ukázáním — bez něj by
+       prohlížeč obě hodnoty složil do jedné a přechod by se nekonal.
+       requestAnimationFrame se tu schválně nepoužívá: na kartě na pozadí
+       nejede, a stránka otevřená „do nové karty" by zůstala prázdná. */
+    void document.body.offsetHeight;
+    prvniPrvky.forEach(function (el, i) { ukaz(el, i * 85); });
+
+    /* Rychlé sjetí kolečkem nebo skok na kotvu přenese prvek přes okno mezi
+       dvěma snímky — hlídka se o něm nedozví a zůstal by navždy neviditelný.
+       Co zůstalo nad oknem, ukážeme bez zdržení (ověřeno skokem na konec
+       stránky: tři karty „proč k nám" takhle zmizely). */
+    var uklid;
+    function doukliditPreskocene() {
+      document.querySelectorAll("[data-vjezd]").forEach(function (el) {
+        if (prvniPrvky.indexOf(el) !== -1) return;
+        if (el.getBoundingClientRect().bottom < 0) {
+          hlidkaVjezdu.unobserve(el);
+          ukaz(el, 0);
+        }
+      });
+    }
+    window.addEventListener("scroll", function () {
+      clearTimeout(uklid);
+      uklid = setTimeout(doukliditPreskocene, 140);
+    }, { passive: true });
+  }
+
+  /* ---------------------------------------------------------- světlo u myši
+     Jen na jemném ukazateli: na dotyku by světlo zůstalo viset tam, kde se
+     naposledy ťuklo. Souřadnice se zapisují jednou za snímek. */
+  if (!klid && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    var pisu = false;
+
+    function sledujSvetlo(el, cil) {
+      el.addEventListener("pointermove", function (e) {
+        if (pisu) return;
+        pisu = true;
+        requestAnimationFrame(function () {
+          pisu = false;
+          var r = el.getBoundingClientRect();
+          cil.style.setProperty("--mx", Math.round(e.clientX - r.left) + "px");
+          cil.style.setProperty("--my", Math.round(e.clientY - r.top) + "px");
+        });
+      });
+    }
+
+    document.querySelectorAll(
+      ".sluzba-karta, .clanek-karta, .hlavni-clanek, .kanal, .duvod, .panel, .postranni-box"
+    ).forEach(function (karta) {
+      karta.classList.add("svetlo");
+      sledujSvetlo(karta, karta);
+    });
+
+    var heroSvetlo = document.querySelector(".hero");
+    if (heroSvetlo) {
+      var zare = document.createElement("div");
+      zare.className = "hero__zare";
+      zare.setAttribute("aria-hidden", "true");
+      heroSvetlo.appendChild(zare);
+      sledujSvetlo(heroSvetlo, zare);
+      heroSvetlo.addEventListener("pointermove", function (e) {
+        var r = heroSvetlo.getBoundingClientRect();
+        mysX = (e.clientX - r.left) / r.width;
+        mysY = (e.clientY - r.top) / r.height;
+        mysVHeru = true;
+        heroSvetlo.setAttribute("data-mys", "");
+      });
+      heroSvetlo.addEventListener("pointerleave", function () {
+        mysVHeru = false;
+        heroSvetlo.removeAttribute("data-mys");
+      });
+    }
   }
 })();

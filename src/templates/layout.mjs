@@ -186,6 +186,9 @@ export function stranka(ctx, { titulek, popis, telo, trida = "", obrazek = null,
 <link rel="preload" href="${z}assets/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${z}assets/fonts/inter-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${z}assets/style.css">
+<script>/* obsah se smí schovat jen tehdy, když ho má kdo ukázat: značka jde dolů,
+   když prohlížeč animace nechce, a pojistka ji sundá, kdyby web.js nedojel */
+try{var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("js-vjezd");setTimeout(function(){if(!d.hasAttribute("data-vjezd-bezi"))d.classList.remove("js-vjezd")},2500)}}catch(e){}</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${h(site.firma)}">
 <meta property="og:title" content="${h(plnyTitulek)}">
