@@ -103,7 +103,8 @@ export function lista(ctx) {
 
 export function pruhUkazky(ctx) {
   return `<div class="pruh-ukazky">Ukázka nového webu pro ${h(ctx.site.znacka)} — `
-    + `připravil <a href="https://www.bypalda.cz/">byPalda</a></div>`;
+    + `připravil <a href="https://www.bypalda.cz/">byPalda</a>`
+    + ` · <a href="${odkaz(ctx.stranka, "administrace.html")}">ukázka administrace</a></div>`;
 }
 
 /** Patička. */
@@ -165,7 +166,8 @@ export function patka(ctx) {
 }
 
 /** Celá stránka. */
-export function stranka(ctx, { titulek, popis, telo, trida = "", obrazek = null, schema = null }) {
+export function stranka(ctx, { titulek, popis, telo, trida = "", obrazek = null, schema = null,
+  cista = false, hlavaNavic = "", skriptyNavic = "" }) {
   const { stranka: s, site } = ctx;
   const z = koren(s);
   /* u dlouhých titulků (články) značku nepřipojujeme — ve výsledcích se stejně ořízne */
@@ -196,18 +198,18 @@ try{var d=document.documentElement;if(!matchMedia("(prefers-reduced-motion: redu
 <meta property="og:locale" content="cs_CZ">
 ${og ? `<meta property="og:image" content="${h(og)}">` : ""}
 <meta name="robots" content="noindex, nofollow">
+${hlavaNavic}
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
 </head>
 <body class="${trida}">
 <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
-${pruhUkazky(ctx)}
-${hlavicka(ctx)}
+${cista ? "" : pruhUkazky(ctx) + hlavicka(ctx)}
 <main id="obsah">
 ${telo}
 </main>
-${patka(ctx)}
-${lista(ctx)}
-<script src="${z}assets/web.js" defer></script>
+${cista ? "" : patka(ctx) + lista(ctx)}
+${cista ? "" : `<script src="${z}assets/web.js" defer></script>`}
+${skriptyNavic}
 </body>
 </html>
 `;

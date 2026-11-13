@@ -22,6 +22,8 @@ zatím neschválila. Web je `noindex, nofollow` a `robots.txt` ho celý zakazuje
 | `data/sluzby.json` | Rozdělení na sedm služeb podle toho, co ordinace na webu uvádí. Vymyšlené jsou u každé služby: `perex`, `prubeh` / `vyhody`, `trvani` a `hrazeno`. **Ceny a doby ošetření si musí ordinace projít.** |
 | `data/texty.json` | Hero, „Proč k nám“, „Jak probíhá první návštěva“, texty k objednání, nadpisy blogu a **všech osm častých dotazů** v sekci Pro pacienty. Výjimka: `oNas` je reálný text z jejich webu. |
 | Fakturační údaje v Kontaktu | Uvedeny jen ty, které jsou veřejné. IČO, DIČ ani číslo účtu v ukázce nejsou. |
+| `administrace.html` — nástěnka | **Všechna čísla ve statistikách jsou vymyšlená.** Návštěvy, uživatelé, zobrazené stránky, objednání, doba na webu, odchody, zdroje návštěvnosti, nejčtenější články i vyhledávané dotazy. Generuje je `src/lib/admin-data.mjs` z pevného zrna, takže jsou na každé sestavě stejné (180 dní dozadu, provoz vyšší v pondělí až čtvrtek, kdy se ordinuje). Žádné napojení na Google Analytics v ukázce není. |
+| `administrace.html` — ostatní záložky | Stav článků (vyšlo / rozepsáno), počty přečtení, velikosti a použití fotek. Texty, služby, hodiny a spojení jsou ta samá data jako na webu. Změny v administraci se ukládají jen do prohlížeče (localStorage), tlačítko „Vrátit do původního stavu" je smaže. |
 | Ochrana osobních údajů | Rozumný základ, ne právní dokument. Finální znění se dělá podle toho, jaké systémy ordinace používá. |
 
 ## Co na ukázce schválně není
@@ -29,5 +31,5 @@ zatím neschválila. Web je `noindex, nofollow` a `robots.txt` ho celý zakazuje
 - **Žádný kontaktní formulář.** Ordinace ho nechce. Objednání je telefon (`tel:`)
   a předvyplněný e-mail (`mailto:`), na mobilu navíc pevná spodní lišta.
 - Žádné cookies, žádné měření, žádné vyskakovací okno.
-- Administrace a nástěnka se statistikami z Google Analytics jsou v nabídce,
-  v téhle ukázce postavené nejsou.
+- Žádné skutečné napojení na Google Analytics. Nástěnka v ukázce administrace
+  kreslí smyšlená čísla (viz tabulka výš) — na ostrém webu by brala data z GA4.
