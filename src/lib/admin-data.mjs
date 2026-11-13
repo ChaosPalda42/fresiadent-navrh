@@ -85,8 +85,14 @@ export function adminData({ site, sluzby, texty, kategorie, clanky, obrazky }, d
       oteviraciDoba: site.oteviraciDoba,
     },
     kategorie: kategorie.map((k) => ({ id: k.id, nazev: k.nazev, popis: k.popis })),
+    /* Pořadí klíčů je zároveň pořadí polí v administraci: nejdřív to krátké
+       nahoře na stránce, pak seznamy, nakonec dvě věty pod ně. Prázdné klíče
+       se nevyrábějí — u služby bez průběhu by to bylo prázdné pole navíc. */
     sluzby: sluzby.map((s) => ({
       id: s.id, nazev: s.nazev, kratce: s.kratce, perex: s.perex,
+      ...(s.obsahuje ? { obsahuje: s.obsahuje } : {}),
+      ...(s.prubeh ? { prubeh: s.prubeh } : {}),
+      ...(s.vyhody ? { vyhody: s.vyhody } : {}),
       trvani: s.trvani || "", hrazeno: s.hrazeno || "",
     })),
     texty,

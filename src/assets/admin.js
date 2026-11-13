@@ -492,6 +492,7 @@
     odstavce: "Odstavce", zivotopis: "Vzdělání a praxe", kroky: "Kroky", dotazy: "Časté dotazy",
     text: "Text", otazka: "Otázka", odpoved: "Odpověď", nazev: "Název", kratce: "Krátce",
     perex: "Perex", trvani: "Trvání", hrazeno: "Hrazení", popis: "Popis",
+    obsahuje: "Co služba zahrnuje", prubeh: "Jak to probíhá", vyhody: "Výhody",
   };
   var popisek = function (klic) { return POPISKY[klic] || klic.charAt(0).toUpperCase() + klic.slice(1); };
   var SKRYTE = { ikona: true, cislo: true };
@@ -573,9 +574,13 @@
       return "<details><summary>" + esc(s.nazev) + '<span class="adm-pocet">'
         + esc(s.kratce) + "</span></summary>"
         + '<div class="adm-harmonika__telo">'
-        + ["nazev", "kratce", "perex", "trvani", "hrazeno"].map(function (k) {
-          return pole("sluzby." + i + "." + k, k, s[k] || "");
-        }).join("")
+        /* Pole se berou z dat, ne z pevného seznamu: služba má kromě názvu
+           a perexu i odrážky („Co služba zahrnuje") a kroky průběhu, a ty
+           se musí dát přepsat taky. id je adresa stránky, to se nemění. */
+        + Object.keys(s).filter(function (k) { return k !== "id" && !SKRYTE[k]; })
+          .map(function (k) {
+            return poleProHodnotu("sluzby." + i + "." + k, k, s[k]);
+          }).join("")
         + '<p class="adm-napoveda adm-napoveda--mala">Stránka služby: '
         + '<a href="sluzby/' + esc(s.id) + '.html" target="_blank" rel="noopener">sluzby/'
         + esc(s.id) + ".html</a></p>"
