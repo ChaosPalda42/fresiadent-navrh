@@ -360,8 +360,12 @@ body.menu-otevreno .prepinac span::after { transform: rotate(-45deg); }
 .kanal__ikona svg { width: 22px; height: 22px; }
 .kanal--tel .kanal__ikona { background: var(--grad); }
 .kanal--mail .kanal__ikona { background: linear-gradient(140deg, var(--modra), #0a7fc4); }
+/* popisek nad číslo, ne před něj: telefon musí zůstat na jednom řádku */
+.kanal__text { display: flex; flex-direction: column; min-width: 0; }
 .kanal__role { font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); }
-.kanal__hodnota { font-family: Fraunces, serif; font-size: clamp(1.25rem, 1.05rem + .8vw, 1.65rem); font-weight: 600; letter-spacing: -.01em; word-break: break-word; }
+.kanal__hodnota { font-family: Fraunces, serif; font-size: clamp(1.15rem, .95rem + .7vw, 1.5rem); font-weight: 600; letter-spacing: -.01em; }
+.kanal--tel .kanal__hodnota { white-space: nowrap; }
+.kanal--mail .kanal__hodnota { word-break: break-word; }
 .kanal--mail .kanal__hodnota { font-size: clamp(1.05rem, .92rem + .45vw, 1.3rem); }
 .kanal p { font-size: .9rem; color: var(--text-2); margin: .35rem 0 0; }
 .kanal__pata { margin-top: 1rem; }

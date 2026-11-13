@@ -42,7 +42,7 @@ export function objednaciKanaly(ctx, { email = true } = {}) {
     <a class="kanal kanal--tel" href="tel:${tel(t.cislo)}">
       <div class="kanal__hlava">
         <span class="kanal__ikona">${ikona("telefon")}</span>
-        <span>
+        <span class="kanal__text">
           <span class="kanal__role">${h(t.role)}</span>
           <span class="kanal__hodnota">${h(t.cislo)}</span>
         </span>
@@ -55,7 +55,7 @@ export function objednaciKanaly(ctx, { email = true } = {}) {
     <a class="kanal kanal--mail" href="${mailtoObjednani(site)}">
       <div class="kanal__hlava">
         <span class="kanal__ikona">${ikona("obalka")}</span>
-        <span>
+        <span class="kanal__text">
           <span class="kanal__role">E-mailem</span>
           <span class="kanal__hodnota">${h(site.email)}</span>
         </span>
