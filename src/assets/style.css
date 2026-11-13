@@ -155,6 +155,16 @@ strong { font-weight: 600; }
   display: none; grid-template-columns: 1fr 1fr; gap: .2rem;
 }
 .rozbal[data-otevreno] .rozbal__panel { display: grid; }
+/* Panel visí 10 px pod tlačítkem a ta mezera nepatří k ničemu – jakmile do ní
+   myš vjede, dostane .rozbal mouseleave a menu se zavře dřív, než se dá na
+   položku kliknout. Neviditelný můstek tu mezeru přiklopí k panelu, takže je
+   cesta od tlačítka na položku souvislá. Jen na myši; na mobilu je panel
+   statický a otevírá se klikem. */
+@media (min-width: 881px) {
+  .rozbal__panel::before {
+    content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px;
+  }
+}
 .rozbal__polozka {
   display: flex; gap: .7rem; align-items: flex-start; padding: .65rem .7rem;
   border-radius: 13px; text-decoration: none; color: var(--text);
