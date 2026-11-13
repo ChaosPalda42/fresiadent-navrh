@@ -348,7 +348,8 @@ body.menu-otevreno .prepinac span::after { transform: rotate(-45deg); }
 .krok p { font-size: .92rem; }
 
 /* ---------------------------------------------------------------- objednání */
-.objednat { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.1rem; }
+/* 290 px bylo na číslo o pár pixelů málo: karta se smí zúžit jen na 320 */
+.objednat { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.1rem; }
 .kanal {
   display: flex; flex-direction: column; gap: .25rem; text-decoration: none; color: inherit;
   padding: 1.7rem 1.6rem; border-radius: var(--r); border: 1px solid var(--linka); background: var(--papir);
@@ -363,10 +364,12 @@ body.menu-otevreno .prepinac span::after { transform: rotate(-45deg); }
 /* popisek nad číslo, ne před něj: telefon musí zůstat na jednom řádku */
 .kanal__text { display: flex; flex-direction: column; min-width: 0; }
 .kanal__role { font-size: .76rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--text-2); }
-.kanal__hodnota { font-family: Fraunces, serif; font-size: clamp(1.15rem, .95rem + .7vw, 1.5rem); font-weight: 600; letter-spacing: -.01em; }
+/* číslo nesmí zalomit, takže se místo toho musí vejít: stupeň roste se šířkou
+   okna (na 320 px ~18 px, od ~400 px výš plná velikost) */
+.kanal__hodnota { font-family: Fraunces, serif; font-size: clamp(.88rem, .14rem + 4.4vw, 1.38rem); font-weight: 600; letter-spacing: -.01em; }
 .kanal--tel .kanal__hodnota { white-space: nowrap; }
 .kanal--mail .kanal__hodnota { word-break: break-word; }
-.kanal--mail .kanal__hodnota { font-size: clamp(1.05rem, .92rem + .45vw, 1.3rem); }
+.kanal--mail .kanal__hodnota { font-size: clamp(.95rem, .85rem + .4vw, 1.3rem); }
 .kanal p { font-size: .9rem; color: var(--text-2); margin: .35rem 0 0; }
 .kanal__pata { margin-top: 1rem; }
 
@@ -638,7 +641,6 @@ body.menu-otevreno .prepinac span::after { transform: rotate(-45deg); }
   .cisla { gap: 1.6rem; }
   .tl { padding: .9rem 1.3rem; }
   .hero__akce .tl { flex: 1 1 100%; }
-  .kanal__hodnota { font-size: 1.3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
