@@ -264,8 +264,6 @@
      nahoře hned při načtení, jedou samy po sobě bez čekání na posun. */
   var vjezd = document.documentElement.classList.contains("js-vjezd");
   if (vjezd) {
-    document.documentElement.setAttribute("data-vjezd-bezi", ""); /* pojistka v hlavičce */
-
     var KROK = 70, STROP = 300, DOBA = 650;
 
     /* co jede hned po načtení, v tomhle pořadí */
@@ -385,6 +383,12 @@
       if (!document.hidden) doukliditCoJeVidet();
     });
     setTimeout(doukliditCoJeVidet, 1200);
+
+    /* Teprve teď se odzbrojí pojistka v hlavičce: kdyby cokoli výš v tomhle
+       bloku spadlo, pojistka zůstane ozbrojená a po 2,5 s obsah odkryje.
+       Dokud tahle řádka stála nahoře, výjimka mezi tím znamenala navždy
+       skrytou stránku (našla to sousední session). */
+    document.documentElement.setAttribute("data-vjezd-bezi", "");
   }
 
   /* ---------------------------------------------------------- světlo u myši
