@@ -1,0 +1,165 @@
+[
+  {
+    "id": "preventivni-stomatologie",
+    "nazev": "Preventivní stomatologie",
+    "kratce": "Prohlídka, zubní kámen, dentální hygiena a RTG — aby se malý problém nestal velkým.",
+    "foto": "vysetreni",
+    "ikona": "stit",
+    "perex": "Prevence je nejlevnější a nejšetrnější zubní péče, jaká existuje. Při pravidelné prohlídce zachytíme kaz ve chvíli, kdy je jen skvrnkou ve sklovině — a stačí malá výplň místo ošetření kořenových kanálků.",
+    "obsahuje": [
+      "Komplexní vstupní vyšetření celé dutiny ústní",
+      "Pravidelné preventivní prohlídky dvakrát ročně",
+      "Odstranění zubního kamene",
+      "Ultrazvukové čištění",
+      "Dentální hygiena provedená lékařem",
+      "RTG vyšetření podle potřeby"
+    ],
+    "prubeh": [
+      { "nadpis": "Prohlédneme všechny zuby", "text": "Ze všech stran, ne jen ten, který vás poslal k zubaři. Kontrolujeme výplně, korunky i náhrady." },
+      { "nadpis": "Zkontrolujeme dásně", "text": "Krvácivost a stav parodontu. Začínající zánět dásní se dá zastavit, pokročilá parodontitida už hůř." },
+      { "nadpis": "Doplníme RTG", "text": "Snímek ukáže to, co na první pohled není vidět — mezizubní kazy a záněty u kořenů. Zpravidla jednou za jeden až dva roky." },
+      { "nadpis": "Řekneme vám, co vidíme", "text": "Nálezy projdeme s vámi, vysvětlíme, co se dá počkat a co ne, a domluvíme další postup." }
+    ],
+    "trvani": "15–20 minut",
+    "hrazeno": "Preventivní prohlídku hradí zdravotní pojišťovna dvakrát ročně."
+  },
+  {
+    "id": "esteticka-stomatologie",
+    "nazev": "Estetická stomatologie",
+    "kratce": "Bílé výplně, fotokompozitní fazety z volné ruky a složité dostavby zubů.",
+    "foto": "vypln",
+    "ikona": "jiskra",
+    "perex": "Zub se dá opravit tak, aby to nikdo nepoznal. Fotokompozitní materiály dnes umí napodobit sklovinu včetně průsvitnosti, takže výplň zmizí v zubu místo aby na sebe upozorňovala.",
+    "obsahuje": [
+      "Bílé fotokompozitní výplně",
+      "Výměna starých amalgámových plomb",
+      "Fotokompozitní fazety modelované z volné ruky",
+      "Komplikované dostavby rozsáhle poškozených zubů",
+      "Úprava tvaru a barvy předních zubů"
+    ],
+    "prubeh": [
+      { "nadpis": "Vybereme odstín", "text": "Barvu určujeme za denního světla podle vzorníku, aby výplň seděla k vašim zubům, ne k průměru." },
+      { "nadpis": "Odstraníme kaz", "text": "Šetrně a jen to, co je opravdu poškozené. Zdravou tkáň chceme zachovat." },
+      { "nadpis": "Modelujeme po vrstvách", "text": "Kompozit se vrství a každá vrstva se vytvrzuje světlem. Právě vrstvení dává zubu hloubku a přirozenost." },
+      { "nadpis": "Doladíme skus a leštíme", "text": "Zub musí hlavně dobře kousat. Nakonec se výplň vyleští, aby se na ní nedržel plak." }
+    ],
+    "trvani": "45–90 minut podle rozsahu",
+    "hrazeno": "Bílé výplně jsou u zadních zubů obvykle za doplatek, u předních je hradí pojišťovna."
+  },
+  {
+    "id": "beleni-zubu",
+    "nazev": "Bělení zubů",
+    "kratce": "Domácí bělení s nosiči vyrobenými v laboratoři na míru vašemu chrupu.",
+    "foto": "beleni",
+    "ikona": "zar",
+    "perex": "Bělíme doma, ale pod dohledem. Nosiče se vyrábějí v laboratoři podle otisku vašeho chrupu, takže gel působí rovnoměrně na zuby a ne na dásně — to je přesně ten rozdíl oproti univerzálním sadám z lékárny.",
+    "obsahuje": [
+      "Vstupní vyšetření, zda je chrup na bělení připravený",
+      "Individuální nosiče vyrobené v zubní laboratoři",
+      "Bělicí gel s 21% karbamid peroxidem",
+      "Podrobná instruktáž k domácímu použití",
+      "Kontrola výsledku po dokončení kúry"
+    ],
+    "prubeh": [
+      { "nadpis": "Nejdřív prohlídka", "text": "Bělit se dá jen zdravý chrup. Kaz nebo zánět dásní se musí vyřešit předem, jinak bělení bolí a nefunguje." },
+      { "nadpis": "Otisk a nosiče", "text": "Vezmeme otisk, laboratoř podle něj vyrobí tenké průhledné nosiče přesně na váš chrup." },
+      { "nadpis": "Instruktáž", "text": "Ukážeme vám, kolik gelu nanést a jak dlouho nosič nechat. Víc gelu neznamená bělejší zuby, jen podrážděné dásně." },
+      { "nadpis": "Bělíte doma", "text": "Kúra trvá obvykle dva týdny. Na konci se uvidíme na kontrole." }
+    ],
+    "trvani": "kúra zhruba 14 dní",
+    "hrazeno": "Bělení je estetický výkon, pojišťovna ho nehradí."
+  },
+  {
+    "id": "zirkonove-korunky",
+    "nazev": "Zirkonové korunky a CAD/CAM",
+    "kratce": "Keramické korunky zhotovené pomocí 3D skeneru — bez klasického otiskování.",
+    "foto": "korunka-nasazeni",
+    "ikona": "sken",
+    "perex": "Místo otiskovací hmoty v ústech sejmeme chrup 3D skenerem. Data jdou rovnou do systému CAD/CAM, který korunku navrhne a vyfrézuje. Výsledek sedí přesněji a vám odpadne nejnepříjemnější část celého ošetření.",
+    "obsahuje": [
+      "Digitální sejmutí chrupu 3D skenerem",
+      "Návrh korunky v systému CAD/CAM",
+      "Zirkonové keramické korunky",
+      "Zkouška a přesné usazení",
+      "Kontrola skusu a doladění"
+    ],
+    "vyhody": [
+      { "nadpis": "Vysoká přesnost", "text": "Digitální otisk se nesmrští ani nedeformuje jako otiskovací hmota." },
+      { "nadpis": "Přirozený vzhled", "text": "Zirkon propouští světlo podobně jako sklovina, takže korunka nepůsobí jako cizí těleso." },
+      { "nadpis": "Vyšší komfort", "text": "Bez otiskovací lžíce v ústech. Pro pacienty s dávivým reflexem je to zásadní rozdíl." },
+      { "nadpis": "Bez kovu", "text": "Na rozdíl od metalokeramiky nehrozí tmavý okraj u dásně, až dáseň časem ustoupí." }
+    ],
+    "trvani": "obvykle dvě návštěvy",
+    "hrazeno": "Celokeramická korunka je nadstandard, pojišťovna přispívá do výše standardní náhrady."
+  },
+  {
+    "id": "proteticka-stomatologie",
+    "nazev": "Protetická stomatologie",
+    "kratce": "Korunky, můstky, částečné i totální náhrady a zásuvné spoje.",
+    "foto": "korunka",
+    "ikona": "most",
+    "perex": "Když zub chybí nebo je příliš poškozený na výplň, nahradíme ho. Rozsah řešení jde od jedné korunky až po totální náhradu — a vždycky začínáme tím, že si řekneme, co od chrupu potřebujete.",
+    "obsahuje": [
+      "Zubní korunky keramické i metalokeramické",
+      "Můstky nahrazující chybějící zuby",
+      "Částečně snímatelné náhrady",
+      "Totální snímatelné protézy",
+      "Zásuvné spoje pro pevnější držení náhrady"
+    ],
+    "prubeh": [
+      { "nadpis": "Plán ošetření", "text": "Projdeme stav celého chrupu a navrhneme řešení včetně ceny. Nic se nezačne dělat, dokud nevíte, do čeho jdete." },
+      { "nadpis": "Příprava zubů", "text": "Zuby se připraví na nasazení náhrady, podle potřeby dostanete provizorium." },
+      { "nadpis": "Práce laboratoře", "text": "Náhradu zhotovuje zubní laboratoř podle otisku nebo digitálního skenu." },
+      { "nadpis": "Zkouška a nasazení", "text": "Náhradu vyzkoušíme, doladíme skus a teprve pak definitivně usadíme." }
+    ],
+    "trvani": "několik návštěv podle rozsahu",
+    "hrazeno": "Standardní náhrady pojišťovna hradí, u nadstandardních se doplácí rozdíl."
+  },
+  {
+    "id": "endodoncie",
+    "nazev": "Endodoncie",
+    "kratce": "Ošetření kořenových kanálků až po definitivní plnění — záchrana zubu, který bolí.",
+    "foto": "endodoncie",
+    "ikona": "koren",
+    "perex": "Zánět nervu neznamená, že zub musí ven. Ošetřením kořenových kanálků se zub zbaví zanícené dřeně, kanálky se vyčistí, vydezinfikují a zaplní — a zub vydrží dál sloužit.",
+    "obsahuje": [
+      "Ošetření kořenových kanálků",
+      "Opracování a dezinfekce kanálků",
+      "Definitivní plnění metodou laterální kondenzace",
+      "RTG kontrola v průběhu i na konci ošetření",
+      "Ošetření pod anestezií"
+    ],
+    "prubeh": [
+      { "nadpis": "Znecitlivíme zub", "text": "Celé ošetření probíhá v anestezii. To, co bolí, je zánět — ne jeho léčba." },
+      { "nadpis": "Otevřeme a vyčistíme kanálky", "text": "Zanícená dřeň se odstraní, kanálky se opracují nástroji a propláchnou dezinfekčním roztokem." },
+      { "nadpis": "Zaplníme kanálky", "text": "Laterální kondenzace vyplní kanálek tak, aby v něm nezůstal prostor pro bakterie." },
+      { "nadpis": "Uzavřeme zub", "text": "Zub dostane výplň nebo dostavbu, u rozsáhle poškozených zubů doporučíme korunku." }
+    ],
+    "trvani": "60–90 minut, někdy ve dvou návštěvách",
+    "hrazeno": "Ošetření kořenových kanálků je v základním provedení hrazeno pojišťovnou."
+  },
+  {
+    "id": "zubni-chirurgie",
+    "nazev": "Zubní chirurgie",
+    "kratce": "Jednoduché i komplikované extrakce zubů a péče o ránu po výkonu.",
+    "foto": "extrakce",
+    "ikona": "ruka",
+    "perex": "Extrakce je až poslední možnost, ale někdy je správná. Zub, který se nedá zachránit, je ohniskem zánětu pro celé okolí — a čím dřív se vyřeší, tím lépe se hojí.",
+    "obsahuje": [
+      "Jednoduché extrakce zubů",
+      "Komplikované extrakce",
+      "Ošetření rány a poučení o péči",
+      "Kontrola hojení",
+      "Řešení akutních stavů podle potřeby"
+    ],
+    "prubeh": [
+      { "nadpis": "Posoudíme snímek", "text": "RTG ukáže tvar kořenů a vztah k okolním strukturám. Podle toho víme, jak bude výkon probíhat." },
+      { "nadpis": "Výkon v anestezii", "text": "Během extrakce cítíte tlak, ne bolest." },
+      { "nadpis": "Ošetření rány", "text": "Ránu ošetříme, podle potřeby sešijeme a dáme vám tampon ke skousnutí." },
+      { "nadpis": "Péče doma", "text": "Dostanete konkrétní pokyny — co jíst, čemu se vyhnout a kdy se ozvat. Sepsali jsme je i do článku na blogu." }
+    ],
+    "trvani": "20–60 minut podle složitosti",
+    "hrazeno": "Extrakce je hrazena zdravotní pojišťovnou.",
+    "clanek": "jak-se-chovat-po-vytrzeni-zubu-co-jist-cemu-se-vyhnout-a-kdy-jit-zpet-k-lekari"
+  }
+]

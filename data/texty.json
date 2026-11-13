@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "nadpis": "Zdravý úsměv začíná v naší ordinaci",
+    "podtitul": "Komplexní stomatologická péče s důrazem na kvalitu, preciznost a váš komfort. Poliklinika Vysočany, Praha 9.",
+    "pruh": "Přijímáme nové pacienty · smlouvy se zdravotními pojišťovnami"
+  },
+  "proc": {
+    "nadpis": "Proč k nám chodí lidé z celé Prahy",
+    "polozky": [
+      { "ikona": "roky", "nadpis": "Přes 25 let praxe", "text": "Vlastní ordinace od roku 2002, atestace z praktického zubního lékařství a kurzy u nás i v zahraničí." },
+      { "ikona": "sken", "nadpis": "3D skener a CAD/CAM", "text": "Korunky zhotovujeme digitálně, bez otiskovací hmoty v ústech." },
+      { "ikona": "stit", "nadpis": "Smlouvy s pojišťovnami", "text": "Co jde hradit z pojištění, hradíme z pojištění. Doplatky říkáme dopředu." },
+      { "ikona": "rec", "nadpis": "Vysvětlíme každý krok", "text": "Před zákrokem i během něj. Prostor na otázky má každý pacient." }
+    ]
+  },
+  "oNas": {
+    "nadpis": "Vítejte v naší ordinaci",
+    "odstavce": [
+      "V blízkosti centra Prahy se nachází místo, kde se zdraví a krása úsměvu snoubí s péčí a profesionalitou. Zubní ordinace MUDr. Zuzany Střelcové je místem, kde více než 25 let zkušeností potkává nejmodernější technologie a individuální přístup ke každému pacientovi.",
+      "Ordinace je vybavena špičkovými přístroji, které umožňují přesná a bezbolestná ošetření. Každý pacient má prostor pro otázky a dostane podrobné vysvětlení zákroku před ním i v jeho průběhu.",
+      "Protože zdravý úsměv je klíčem k sebevědomí, jsme tu, abychom vám pomohli dosáhnout dokonalé péče o zuby."
+    ],
+    "zivotopis": [
+      "MUDr. Zuzana Střelcová ukončila studium medicíny na Lékařské fakultě Univerzity Karlovy v roce 1999 a poté nastoupila jako absolventka u lékaře-školitele, kde se tři roky učila pravé zubařské řemeslo. Toto období zakončila atestací z praktického zubního lékařství.",
+      "V roce 2002 si otevřela vlastní ordinaci se zaměřením na preventivní stomatologii, estetickou stomatologii a protetiku, ale i na celkové ošetření chrupu a rekonstrukce od A do Z — čemuž se věnuje dodnes.",
+      "Své vědomosti si utvrzuje pravidelným absolvováním kurzů, jak u nás, tak i v zahraničí. Řadu let působila jako revizní lékařka.",
+      "Je držitelkou Osvědčení celoživotního vzdělávání zubního lékaře a Osvědčení odborného zástupce, je členkou České stomatologické komory.",
+      "Ať už jde o dospělé, seniory, či malé děti, každý je zde vítán. V roce 2024 se ordinace změnila na FresiaDent s.r.o."
+    ]
+  },
+  "navsteva": {
+    "nadpis": "Jak probíhá první návštěva",
+    "podtitul": "Žádné překvapení. Víte dopředu, co vás čeká a co to bude stát.",
+    "kroky": [
+      { "cislo": "01", "nadpis": "Objednáte se telefonem nebo e-mailem", "text": "Řekneme vám nejbližší volný termín. Když voláte s akutní bolestí, hledáme místo ještě týž den." },
+      { "cislo": "02", "nadpis": "Vstupní vyšetření a RTG", "text": "Projdeme celý chrup, ne jen zub, který bolí. Podle potřeby doplníme rentgen." },
+      { "cislo": "03", "nadpis": "Plán ošetření včetně ceny", "text": "Řekneme si, co je potřeba řešit hned, co může počkat, co hradí pojišťovna a kolik doplatíte." },
+      { "cislo": "04", "nadpis": "Ošetření", "text": "Pracujeme v anestezii a vysvětlujeme, co zrovna děláme. Na konci domluvíme kontrolu." }
+    ]
+  },
+  "objednani": {
+    "nadpis": "Objednejte se k nám",
+    "podtitul": "Žádný formulář, na který nikdo neodpoví. Zavolejte nebo napište — ozveme se."
+  },
+  "blog": {
+    "nadpis": "Zubařské minimum",
+    "podtitul": "Co se vyplatí vědět dřív, než vás začne bolet zub. Píše MUDr. Zuzana Střelcová."
+  },
+  "pacienti": {
+    "nadpis": "Pro pacienty",
+    "podtitul": "Praktické věci, které nejčastěji řešíme po telefonu.",
+    "dotazy": [
+      { "otazka": "Přijímáte nové pacienty?", "odpoved": "Ano, přijímáme. Stačí zavolat na +420 266 006 189 a domluvíme vám termín vstupní prohlídky." },
+      { "otazka": "Máte smlouvy se zdravotními pojišťovnami?", "odpoved": "Ano. Ošetření hrazené z veřejného zdravotního pojištění účtujeme pojišťovně. U nadstandardních materiálů a estetických výkonů se doplácí — vždy vám cenu řekneme předem." },
+      { "otazka": "Co když mě zub rozbolí mimo ordinační hodiny?", "odpoved": "Ordinujeme v pondělí až čtvrtek od 8 do 15 hodin. Mimo tuto dobu nám napište e-mail — ozveme se hned, jak otevřeme. Při silné bolesti nebo otoku využijte pohotovostní stomatologickou službu v Praze." },
+      { "otazka": "Berete děti?", "odpoved": "Ano. Ordinace ošetřuje dospělé, seniory i malé děti." },
+      { "otazka": "Jak dlouho trvá preventivní prohlídka?", "odpoved": "Zhruba 15 až 20 minut. Pojišťovna ji hradí dvakrát ročně." },
+      { "otazka": "Dá se u vás zaparkovat?", "odpoved": "Ano, poliklinika má vlastní hlídané parkoviště. Metrem B vystupte na Českomoravské nebo Vysočanské." },
+      { "otazka": "Bude to bolet?", "odpoved": "Pracujeme v anestezii a každý krok dopředu vysvětlíme. Co bolí, je zánět — ne jeho ošetření. Když máte z návštěvy obavy, řekněte to rovnou, počítáme s tím." },
+      { "otazka": "Potřebuji k vám doporučení od jiného lékaře?", "odpoved": "Ne. Stačí se objednat, přinést kartičku pojišťovny a průkaz totožnosti." }
+    ]
+  }
+}

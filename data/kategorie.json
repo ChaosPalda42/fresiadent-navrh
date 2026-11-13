@@ -1,0 +1,27 @@
+[
+ {
+  "id": "prevence",
+  "nazev": "Prevence",
+  "popis": "Prohlídky, hygiena a všechno, co zubu zabrání onemocnět."
+ },
+ {
+  "id": "estetika",
+  "nazev": "Estetika",
+  "popis": "Bílé výplně, fazety a jak vrátit zubu přirozený vzhled."
+ },
+ {
+  "id": "protetika",
+  "nazev": "Protetika",
+  "popis": "Korunky, můstky a náhrady chybějících zubů."
+ },
+ {
+  "id": "endodoncie",
+  "nazev": "Endodoncie",
+  "popis": "Ošetření kořenových kanálků a záchrana zubu, který bolí."
+ },
+ {
+  "id": "chirurgie",
+  "nazev": "Chirurgie",
+  "popis": "Extrakce zubů a péče o ránu po výkonu."
+ }
+]

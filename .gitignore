@@ -1,0 +1,8 @@
+out/
+.DS_Store
+
+# nepatří na veřejný GitHub: nacenění a podklady nabídky (včetně dat klienta),
+# stažené zdroje z původního webu
+naceneni-a-koncept.md
+nabidka/
+zdroje/

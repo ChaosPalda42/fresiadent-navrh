@@ -1,0 +1,43 @@
+{
+  "firma": "FresiaDent s.r.o.",
+  "znacka": "FresiaDent",
+  "lekarka": "MUDr. Zuzana Střelcová",
+  "podtitul": "Zubní ordinace v Praze 9",
+  "motto": "Spondeo ac Polliceor",
+  "mottoPreklad": "Slibuji a zavazuji se",
+  "domena": "fresiadent.cz",
+  "web": "https://www.fresiadent.cz",
+  "adresa": {
+    "misto": "Poliklinika Vysočany",
+    "ulice": "Sokolovská 810/304",
+    "psc": "190 00",
+    "mesto": "Praha 9",
+    "ctvrt": "Vysočany"
+  },
+  "mapa": { "lat": 50.1073, "lon": 14.5012 },
+  "email": "fresiadent@seznam.cz",
+  "telefony": [
+    { "role": "Ordinace", "cislo": "+420 266 006 189", "popis": "objednání a dotazy" },
+    { "role": "Mobil", "cislo": "+420 704 810 805", "popis": "když se nedovoláte na pevnou" }
+  ],
+  "oteviraciDoba": [
+    { "den": "Pondělí", "zkratka": "Po", "od": "8:00", "do": "15:00" },
+    { "den": "Úterý", "zkratka": "Út", "od": "8:00", "do": "15:00" },
+    { "den": "Středa", "zkratka": "St", "od": "8:00", "do": "15:00" },
+    { "den": "Čtvrtek", "zkratka": "Čt", "od": "8:00", "do": "15:00" },
+    { "den": "Pátek", "zkratka": "Pá", "od": null, "do": null },
+    { "den": "Sobota", "zkratka": "So", "od": null, "do": null },
+    { "den": "Neděle", "zkratka": "Ne", "od": null, "do": null }
+  ],
+  "doprava": [
+    { "ikona": "metro", "nadpis": "Metrem B", "text": "Stanice Českomoravská nebo Vysočanská, odtud pár minut pěšky." },
+    { "ikona": "auto", "nadpis": "Autem", "text": "Poliklinika má vlastní hlídané parkoviště přímo u budovy." },
+    { "ikona": "tram", "nadpis": "Tramvají", "text": "Zastávka Nádraží Vysočany, linky směr Českomoravská." }
+  ],
+  "cisla": [
+    { "hodnota": "25+", "popis": "let praxe" },
+    { "hodnota": "1999", "popis": "ukončení studia medicíny na LF UK" },
+    { "hodnota": "2002", "popis": "otevření vlastní ordinace" }
+  ],
+  "pojistovny": ["VZP 111", "VoZP 201", "ČPZP 205", "OZP 207", "ZPŠ 209", "ZPMV 211", "RBP 213"]
+}
